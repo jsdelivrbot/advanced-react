@@ -1,0 +1,79 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Server Auth",
+		"_postman_id": "eb8f771e-d37f-20c9-5003-07e4a61b69ed",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3090/signup",
+			"request": {
+				"url": "http://localhost:3090/signup",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"test1@example.com\",\n\t\"password\": \"123\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3090",
+			"request": {
+				"url": "http://localhost:3090",
+				"method": "GET",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1ODgyNDQ0YTY3Y2IxZTEwZDUwNTQyZGQiLCJpYXQiOjE0ODQ5MzIxNzEwOTR9.LGDZtesZZ-YwEjmWOQEkKB-cbblTy_jBstEmrGGrhvk",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3090",
+			"request": {
+				"url": "http://localhost:3090",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3090/signin",
+			"request": {
+				"url": "http://localhost:3090/signin",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/javascript",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"test1@example.com\",\n\t\"password\": \"123\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
