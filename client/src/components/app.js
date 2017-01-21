@@ -6,7 +6,7 @@ export default class App extends Component {
     return (
       <div>
         <Header/>
-        Client Auth
+        {this.props.children}
       </div>
     );
   }
