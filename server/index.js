@@ -6,12 +6,14 @@ const morgan = require('morgan');
 const app = express();
 const router = require('./router');
 const mongoose = require('mongoose');
+const cors = require('cors'); // https://www.npmjs.com/package/cors
 
 // DB Setup
 mongoose.connect('mongodb://localhost:auth/auth');
 
 // app setup
 app.use(morgan('combined')); // logging requests
+app.use(cors());
 app.use(bodyParser.json({ type: '*/*' }));
 router(app);
 
