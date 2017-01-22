@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
 import * as actions from '../../actions';
-import { connect } from 'react-redux';
-import compose  from 'compose';
-
 
 class Signin extends Component {
   handleFormSubmit({ email, password }){
     this.props.signinUser({ email, password });
+  }
+
+  renderAlert(){
+    if(this.props.errorMessage){
+      return (
+        <div className="alert alert-danger">
+          <strong>Oops!</strong> {this.props.errorMessage}
+        </div>
+      )
+    }
   }
 
   render() {
@@ -21,18 +28,20 @@ class Signin extends Component {
         </fieldset>
         <fieldset className="form-group">
           <label>Password:</label>
-          <input className="form-control" {...password} />
+          <input className="form-control" type="password" {...password} />
         </fieldset>
+        {this.renderAlert()}
         <button action="submit" className="btn btn-primary">Sign in</button>
       </form>
     );
   }
 }
 
-export default compose(
-  connect(null, actions),
-  reduxForm({
+function mapStateToProps(state) {
+  return { errorMessage: state.auth.error };
+}
+
+export default reduxForm({
     form: 'signin',
     fields: ['email', 'password']
-  })
-)(Signin);
+  }, mapStateToProps, actions)(Signin);
